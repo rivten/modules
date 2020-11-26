@@ -3,6 +3,9 @@
 
 #include "interface.h"
 
+// You cannot do this include:
+//#include "cant_include_this_from_engine.h"
+
 int engine_sum(int a, int b)
 {
     return(a + b);
