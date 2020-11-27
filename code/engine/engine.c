@@ -1,5 +1,7 @@
-#include <dlfcn.h>
 #include <stdio.h>
+#if DYNAMIC_LINKING
+#include <dlfcn.h>
+#endif
 
 #include "interface.h"
 
@@ -17,6 +19,7 @@ int main(void)
         .engine_sum = engine_sum,
     };
 
+#if DYNAMIC_LINKING
     void* gameplay_handle = dlopen("build/libmodules_gameplay.so", RTLD_LAZY);
 
     if(gameplay_handle == 0)
@@ -36,6 +39,14 @@ int main(void)
     update_gameplay_function(&interface);
 
     dlclose(gameplay_handle);
+#else
+    update_gameplay(&interface);
+#endif
 
     return(0);
+}
+
+void function_gameplay_cannot_call(void)
+{
+    printf("Hello from engine\n");
 }
