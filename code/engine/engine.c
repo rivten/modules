@@ -46,7 +46,7 @@ int main(void)
     return(0);
 }
 
-void function_gameplay_cannot_call(void)
+static void function_gameplay_cannot_call(void)
 {
     printf("Hello from engine\n");
 }
