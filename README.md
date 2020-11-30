@@ -6,9 +6,9 @@ You only need cmake.
 
 # Build
 
-> mkdir build
-> cd build
-> cmake ..
+    mkdir build
+    cd build
+    cmake ..
 
 should be enough. Then you should be able to build with either Visual Studio if you are on windows, on make if you are on linux.
 
